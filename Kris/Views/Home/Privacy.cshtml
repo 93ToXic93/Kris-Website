@@ -1,6 +1,55 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1 class="text-white">@ViewData["Title"]</h1>
+﻿
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
 
-<p class="text-white">Use this page to detail your site's privacy policy.</p>
+    <!-- The App Section -->
+    <div class="container text-white">
+        <div class="row">
+            <div class="column-66">
+                <h1 class="xlarge-font"><b>The Place "Kris"</b></h1>
+                <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why to choose it?</b></h1>
+                <p><span style="font-size:36px">Choose The Best Coffee!.</span> We have been here since 2003 and we have been tested so many different coffees! So trust the professional choice. Come and visit us and you will understand why we are the best!</p>
+                <a asp-controller="Product" asp-action="Index" class="button1">Check the menu</a>
+            </div>
+            <div class="column-33">
+                <img src="~/image/home-img-1.png" width="400" height="auto">
+            </div>
+        </div>
+    </div>
+
+    <!-- Clarity Section -->
+    <div class="container" style="background-color:#f1f1f1">
+        <div class="row">
+            <div class="column-33">
+                <img class="img2" src="~/image/home-img-2.png" alt="App" width="335" height="auto">
+            </div>
+            <div class="column-66">
+                <h1 class="xlarge-font"><b>Coffee</b></h1>
+                <h1 class="large-font" style="color:red;"><b>Kris, who?</b></h1>
+                <p><span style="font-size:24px">A revolution in resolution.</span>We are using the best coffee! Julius Meinl and we are proud of it!We are a good place to take a brake from your fast life and slow down. Ask some friends and come to take a day off!</p>
+                <a href="https://www.facebook.com/CafeKris/" target="_blank" class="buttonLocation" style="background-color:red">Location</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The App Section -->
+    <div class="container text-white">
+        <div class="row">
+            <div class="column-66">
+                <h1 class="xlarge-font"><b>About you?</b></h1>
+                <h1 class="large-font" style="color:MediumSeaGreen;"><b>Take it!</b></h1>
+                <p><span style="font-size:36px">Too Lazy?</span>He're we are again if you are too lazy today we can come to you with our Take Away order or even Glovo! Stay home open the website and order it! We promise it will be delicious</p>
+                <a href="https://www.takeaway.com/bg/menu/kris-restaurantrestorant-kris-hristo-smirnenski?fbclid=IwAR1NkHTJWvyqxVkBnJyED6YToW1kRuQq1mijOxIresHhbwr8-7VrLatGbUs" target="_blank" class="buttonTakeAway">Take Away</a>
+                <a class="buttonGlovo">Glovo</a>
+            </div>
+            <div class="column-33">
+                <img src="~/image/home-img-3.png" width="600" height="auto">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

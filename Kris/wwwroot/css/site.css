@@ -1,24 +1,259 @@
 html {
-  font-size: 14px;
+    font-size: 18px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 22px;
-  }
+    html {
+        font-size: 20px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,36,1) 35%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(60,121,9,1) 80%, rgba(0,212,255,1) 100%);
 }
 
+.KrisButton {
+    text-decoration: none;
+    font-size: 45px;
+    color: #AE8923;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 9px 2px black;
+    transition: 0.3s;
+}
+
+    .KrisButton:hover {
+        color: white;
+        font-size: 48px;
+        text-shadow: 1px 12px 2px black;
+    }
+
+.ButtonHome {
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 30px;
+    border: solid;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 12px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 15px 2px #0A58CA;
+    text-shadow: 2px 2px 10px #0A58CA;
+    transition: 0.3s;
+}
+
+    .ButtonHome:hover {
+        background-color: #0A58CA;
+        color: white;
+        border-color: #0A58CA;
+        text-shadow: 3px 5px 6px white;
+    }
+
+.ButtonAbout {
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 30px;
+    border: solid;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 12px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 15px 2px #0A58CA;
+    text-shadow: 2px 2px 10px #0A58CA;
+    transition: 0.3s;
+}
+
+    .ButtonAbout:hover {
+        background-color: #0A58CA;
+        color: white;
+        border-color: #0A58CA;
+        text-shadow: 3px 5px 6px white;
+    }
+
+.ButtonMenu {
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 30px;
+    border: solid;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 12px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 15px 2px #0A58CA;
+    text-shadow: 2px 2px 10px #0A58CA;
+    transition: 0.3s;
+}
+
+    .ButtonMenu:hover {
+        background-color: #0A58CA;
+        color: white;
+        border-color: #0A58CA;
+        text-shadow: 3px 5px 6px white;
+    }
+
+@media (max-width: 767px) {
+    .ButtonAbout {
+        margin-right: 30px;
+        text-decoration: none;
+        font-size: 30px;
+        border: solid;
+        padding-right: 50px;
+        padding-bottom: 2px;
+        border-radius: 25px;
+        box-shadow: 1px 1px 15px 2px #0A58CA;
+        text-shadow: 2px 2px 10px #0A58CA;
+        color: white;
+    }
+
+    .ButtonMenu {
+        margin-right: 30px;
+        text-decoration: none;
+        font-size: 30px;
+        border: solid;
+        padding-right: 50px;
+        padding-left: 50px;
+        padding-bottom: 2px;
+        border-radius: 25px;
+        box-shadow: 1px 1px 15px 2px #0A58CA;
+        text-shadow: 2px 2px 10px #0A58CA;
+        color: white;
+    }
+
+    .ButtonHome {
+        margin-right: 30px;
+        text-decoration: none;
+        font-size: 30px;
+        border: solid;
+        color: white;
+        padding-right: 50px;
+        padding-left: 50px;
+        padding-bottom: 2px;
+        border-radius: 25px;
+        box-shadow: 1px 1px 15px 2px #0A58CA;
+        text-shadow: 2px 2px 10px #0A58CA;
+    }
+
+    img {
+        width: 250px;
+    }
+}
+
+
+.container {
+    padding: 64px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.column-66 {
+    float: left;
+    width: 66.66666%;
+    padding: 20px;
+}
+
+.column-33 {
+    float: left;
+    width: 33.33333%;
+    padding: 20px;
+}
+
+.large-font {
+    font-size: 48px;
+}
+
+.xlarge-font {
+    font-size: 64px
+}
+
+.button1 {
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #04AA6D;
+    text-decoration: none;
+    color:white;
+    transition:0.3s;
+}
+
+    .button1:hover {
+        color: white;
+        background-color: blue;
+        border-radius: 50px;
+        box-shadow: 1px 1px 15px 2px #0A58CA;
+        text-shadow: 2px 2px 10px white;
+    }
+
+.buttonLocation {
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 1px 1px 15px 2px red;
+    transition: 0.3s;
+}
+
+    .buttonLocation:hover {
+        font-size: 30px;
+        color: black;
+    }
+
+
+.buttonTakeAway {
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 30px;
+    border: solid;
+    color: white;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 15px 2px #0A58CA;
+    text-shadow: 2px 2px 10px #0A58CA;
+}
+.buttonGlovo {
+    text-decoration: none;
+    font-size: 30px;
+    border: solid;
+    color: white;
+    padding-right: 30px;
+    padding-left:  30px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 15px 2px #0A58CA;
+    text-shadow: 2px 2px 10px #0A58CA;
+    cursor:pointer;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .column-66, .column-33 {
+        width: 100%;
+        text-align: center;
+    }
+
+    img {
+        margin: auto;
+    }
+
+    .img2 {
+        margin: auto;
+        height: auto
+    }
+        
+}

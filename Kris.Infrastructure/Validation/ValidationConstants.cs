@@ -20,5 +20,9 @@ namespace Kris.Infrastructure.Validation
 
         public const int MinNameLength = 3;
 
+        public const int MinDescLength = 5;
+
+        public const int MinCategoryLength = 3;
+
     }
 }
