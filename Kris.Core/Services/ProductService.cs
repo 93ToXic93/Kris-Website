@@ -4,15 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kris.Core.Contracts;
+using Kris.Infrastructure.Data;
+using Kris.Infrastructure.Data.Models;
 using Kris.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kris.Core.Services
 {
     public class ProductService : IProductService
     {
-        public Task AddAsync(ProductModel product)
+        private readonly KrisDbContext _context;
+
+        public ProductService(KrisDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public async Task AddAsync(ProductModel product)
+        {
+
+            if (_context.Products.Any(x => x.Name == product.Name))
+            {
+                throw new ArgumentException("There is already the same product!");
+            }
+
+
+            Product productToAdd = new Product()
+            {
+                Name = product.Name,
+                Category = product.Category,
+                Price = product.Price,
+                Description = product.Description,
+                Id = product.Id
+            }; 
+
+            await _context.Products.AddAsync(productToAdd);
+
+            await _context.SaveChangesAsync();
         }
 
         public Task UpdateAsync(ProductModel model)
@@ -30,9 +58,19 @@ namespace Kris.Core.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ProductModel>> GetAllAsync()
+        public async Task<IEnumerable<ProductModel>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var products = await _context.Products.Select(x => new ProductModel()
+            {
+                Name = x.Name,
+                Category = x.Category,
+                Price = x.Price,
+                Description = x.Description,
+                Id = x.Id
+            })
+            .ToListAsync();
+
+            return products;  
         }
     }
 }

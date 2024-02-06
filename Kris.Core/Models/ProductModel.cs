@@ -23,7 +23,7 @@ namespace Kris.Models
         public required string Category { get; set; }
 
         [Required(ErrorMessage = "The field {0} is required")]
-        [Range(ValidationConstants.MaxPrice, ValidationConstants.MinPrice,ErrorMessage = "The price should be between {2} and {1}")]
+        [Range(ValidationConstants.MinPrice, ValidationConstants.MaxPrice,ErrorMessage = "The price should be between {2} and {1}")]
         public required decimal Price { get; set; }
 
     }

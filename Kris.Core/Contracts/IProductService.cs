@@ -1,4 +1,5 @@
-﻿using Kris.Infrastructure.Data.Models;
+﻿using Kris.Core;
+using Kris.Infrastructure.Data.Models;
 using Kris.Models;
 
 namespace Kris.Core.Contracts
