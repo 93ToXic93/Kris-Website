@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Kris.Core.Contracts;
@@ -43,19 +44,63 @@ namespace Kris.Core.Services
             await _context.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(ProductModel model)
+        public async Task UpdateAsync(ProductModel model)
         {
-            throw new NotImplementedException();
+            var prod = await _context.Products.FindAsync(model.Id);
+
+            if (prod == null)
+            {
+                throw new ArgumentException("Not Found!");
+            }
+
+            if (await _context.Products.AnyAsync(x => x.Name == model.Name))
+            {
+                throw new InvalidOperationException("There is product with the same name already!");
+            }
+
+
+            prod.Name = model.Name;
+            prod.Price = model.Price;
+            prod.Category = model.Category;
+            prod.Description = model.Description;
+
+            await _context.SaveChangesAsync();
+
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var productToDelete = await _context.Products.FindAsync(id);
+
+            if (productToDelete == null)
+            {
+                throw new ArgumentException("There is no such item to delete!");
+            }
+
+            _context.Remove(productToDelete);
+
+            await _context.SaveChangesAsync();
         }
 
-        public Task<ProductModel> GetProductByIdAsync(int id)
+        public async Task<ProductModel> GetProductByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            Product? product = await _context.Products.FindAsync(id);
+
+            if (product == null)
+            {
+                throw new ArgumentException("The product isn't found!");
+            }
+
+            ProductModel model = new ProductModel()
+            {
+                Price = product.Price,
+                Description = product.Description,
+                Id = product.Id,
+                Category = product.Category,
+                Name = product.Name
+            };
+
+            return model;
         }
 
         public async Task<IEnumerable<ProductModel>> GetAllAsync()
@@ -68,6 +113,7 @@ namespace Kris.Core.Services
                 Description = x.Description,
                 Id = x.Id
             })
+            .AsNoTracking()
             .ToListAsync();
 
             return products;  

@@ -31,8 +31,7 @@ namespace Kris.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-
-            ProductModel modelToGive = new ProductModel(); //To DO REQUIRED ISNT GIVEING IT !
+            ProductModel modelToGive = new ProductModel();
 
             return View(modelToGive);
         }
@@ -48,8 +47,63 @@ namespace Kris.Controllers
                 }
                 catch (Exception e)
                 {
-                    RedirectToAction(nameof(Error));
+                    return RedirectToAction(nameof(Error));
                 }
+            }
+
+            return RedirectToAction(nameof(Menu));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            ProductModel? productToUp = new ProductModel();
+
+            try
+            {
+                productToUp = await _service.GetProductByIdAsync(id);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction(nameof(Error));
+            }
+
+            return View(productToUp);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(ProductModel productModel)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                throw new ArgumentException("Not correct data!");
+            }
+
+            try
+            {
+                await _service.UpdateAsync(productModel);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction(nameof(Error));
+            }
+
+
+            return RedirectToAction(nameof(Menu));
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+               await _service.DeleteAsync(id);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction(nameof(Error));
             }
 
             return RedirectToAction(nameof(Menu));
