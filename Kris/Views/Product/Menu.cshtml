@@ -43,7 +43,7 @@
                         <td>
                             <div class="container-fluid">
 
-                                <form class="mt-2" asp-controller="Product" asp-action="Delete" method="post" asp-route-id="@item.Id">
+                                <form class="mt-2" asp-controller="Product" asp-action="Delete" onsubmit="return ConfirmDelete()" method="post" asp-route-id="@item.Id">
                                     <div class="d-grid gap-2">
                                         <a asp-action="Edit" asp-controller="Product" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
                                         <input type="submit" value="Delete" class="btn btn-danger mb-2"/>
@@ -68,3 +68,4 @@
 
 
 <script src="~/js/site.js"></script>
+
