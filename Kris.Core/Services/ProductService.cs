@@ -53,7 +53,7 @@ namespace Kris.Core.Services
                 throw new ArgumentException("Not Found!");
             }
 
-            if (await _context.Products.AnyAsync(x => x.Name == model.Name))
+            if (await _context.Products.AnyAsync(x => x.Name == model.Name) && model.Name != prod.Name)
             {
                 throw new InvalidOperationException("There is product with the same name already!");
             }
